@@ -10,7 +10,6 @@ import numpy as np
 #nombre del app
 app = Flask(__name__)
 
-
 # Carpeta donde se almacenarán las imágenes subidas
 UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -34,48 +33,21 @@ clases = ['Apple-Apple-scab', 'Apple-Black-rot', 'Apple-Cedar-apple-rust', 'Appl
           'Tomato-Late-blight', 'Tomato-Leaf-Mold', 'Tomato-Septoria-leaf-spot', 
           'Tomato-Spider-mites-Two-spotted-spider-mite', 'Tomato-Target-Spot', 
           'Tomato-Tomato-Yellow-Leaf-Curl-Virus', 'Tomato-Tomato-mosaic-virus', 'Tomato-healthy']
+
 # Clases saludables
-healthy_classes = [
-    'Apple-healthy',
-    'Blueberry-healthy',
-    'Cherry-sour-healthy',
-    'Corn-healthy',
-    'Grape-healthy',
-    'Peach-healthy',
-    'Pepper-bell-healthy',
-    'Potato-healthy',
-    'Raspberry-healthy',
-    'Soybean-healthy',
-    'Strawberry-healthy',
-    'Tomato-healthy'
-    ]
+healthy_classes = ['Apple-healthy','Blueberry-healthy','Cherry-sour-healthy','Corn-healthy',
+    'Grape-healthy','Peach-healthy','Pepper-bell-healthy','Potato-healthy','Raspberry-healthy',
+    'Soybean-healthy','Strawberry-healthy','Tomato-healthy']
+
 # Clases enfermas
-unhealthy_classes = [
-    'Apple-Apple-scab',
-    'Apple-Black-rot',
-    'Apple-Cedar-apple-rust',
-    'Cherry-sour-Powdery-mildew',
-    'Corn-Cercospora-leaf-spot-Gray-leaf-spot',
-    'Corn-Common-rust',
-    'Corn-Northern-Leaf-Blight',
-    'Grape-Black-rot',
-    'Grape-Esca-Black_Measles',
-    'Grape-Leaf-blight-Isariopsis',
-    'Orange-Haunglongbing-Citrus-greening',
-    'Peach-Bacterial-spot',
-    'Pepper-bell-Bacterial-spot',
-    'Potato-Early-blight',
-    'Potato-Late-blight',
-    'Squash-Powdery-mildew',
-    'Tomato-Bacterial-spot',
-    'Tomato-Early-blight',
-    'Tomato-Late-blight',
-    'Tomato-Leaf-Mold',
-    'Tomato-Septoria-leaf-spot',
-    'Tomato-Spider-mites-Two-spotted-spider-mite',
-    'Tomato-Target-Spot',
-    'Tomato-Tomato-Yellow-Leaf-Curl-Virus',
-    'Tomato-Tomato-mosaic-virus']
+unhealthy_classes = ['Apple-Apple-scab','Apple-Black-rot','Apple-Cedar-apple-rust',
+    'Cherry-sour-Powdery-mildew','Corn-Cercospora-leaf-spot-Gray-leaf-spot','Corn-Common-rust',
+    'Corn-Northern-Leaf-Blight','Grape-Black-rot','Grape-Esca-Black_Measles',
+    'Grape-Leaf-blight-Isariopsis','Orange-Haunglongbing-Citrus-greening','Peach-Bacterial-spot',
+    'Pepper-bell-Bacterial-spot','Potato-Early-blight','Potato-Late-blight',
+    'Squash-Powdery-mildew','Tomato-Bacterial-spot','Tomato-Early-blight','Tomato-Late-blight',
+    'Tomato-Leaf-Mold','Tomato-Septoria-leaf-spot','Tomato-Spider-mites-Two-spotted-spider-mite',
+    'Tomato-Target-Spot','Tomato-Tomato-Yellow-Leaf-Curl-Virus','Tomato-Tomato-mosaic-virus']
 
 # Función para hacer predicción con el modelo
 def predecir_imagen(ruta_imagen):
@@ -107,43 +79,30 @@ def index():
         'Apple-Black-rot': "La planta tiene óxido negro. Utiliza fungicidas con captan o miclobutanil al inicio de la temporada y después de lluvias fuertes. También retira las hojas o frutos infectados.",
         'Apple-Cedar-apple-rust': "Se observa óxido de manzana. Aplica un fungicida con ingrediente activo de miclobutanil o mancozeb antes de que aparezcan los primeros síntomas y durante la primavera, en intervalos de 7-10 días.",
         'Apple-healthy': "¡La planta de manzana está sana! Sigue cuidándola con riego adecuado y suficiente luz solar.",
-        
         'Blueberry-healthy': "¡Los arándanos están sanos! Asegúrate de mantener el suelo bien drenado y proporciona suficiente luz.",
-        
         'Cherry-sour-Powdery-mildew': "La planta tiene moho polvoriento. Aplica fungicidas con azufre, bicarbonato de potasio o neem. También puedes usar una solución casera de leche diluida al 10-20% (una parte de leche y 9 de agua) para prevenir.",
         'Cherry-sour-healthy': "¡La planta de cerezo está sana! Mantén un riego regular y asegúrate de que reciba luz adecuada.",
-        
         'Corn-Cercospora-leaf-spot-Gray-leaf-spot': "Se presenta mancha de Cercospora. Aplica fungicidas que contengan clorotalonil o cobre y elimina las hojas afectadas para evitar el avance.",
         'Corn-Common-rust': "La planta tiene óxido común. Usa fungicidas que contengan azoxistrobina, propiconazol o miclobutanil y elimina las hojas infectadas para protegerla.",
         'Corn-Northern-Leaf-Blight': "Se observa tizón de hoja norteña. Utiliza fungicidas con clorotalonil, cobre o miclobutanil. Asegúrate de aplicarlos temprano en la temporada y después de lluvias intensas.",
         'Corn-healthy': "¡El maíz está sano! Asegúrate de que reciba suficiente agua y nutrientes.",
-        
         'Grape-Black-rot': "La planta presenta óxido negro. Usa fungicidas con captan, cobre o miclobutanil y elimina las partes infectadas para mantenerla sana.",
         'Grape-Esca-Black_Measles': "Se observa Esca. Aplica tratamientos específicos y controla el riego para ayudar a la planta.",
         'Grape-Leaf-blight-Isariopsis': "La planta tiene moho de hoja. Mejora la circulación de aire y aplica fungicidas con clorotalonil o mancozeb para controlarlo.",
         'Grape-healthy': "¡Las uvas están sanas! Mantén un riego regular y proporciona buena luz.",
-        
         'Orange-Haunglongbing-Citrus-greening': "La planta presenta Huanglongbing, una enfermedad grave. Busca ayuda profesional para tratarla y controla la plaga de psílidos con insecticidas.",
-        
         'Peach-Bacterial-spot': "La planta tiene mancha bacteriana. Aplica tratamientos antibacterianos como bactericidas a base de cobre y mejora la circulación de aire.",
         'Peach-healthy': "¡El durazno está sano! Asegúrate de mantener un riego adecuado y buen drenaje.",
-        
         'Pepper-bell-Bacterial-spot': "La planta tiene mancha bacteriana. Aplica tratamientos antibacterianos y elimina las hojas infectadas.",
         'Pepper-bell-healthy': "¡Los pimientos están en buen estado! Sigue con su cuidado regular.",
-        
         'Potato-Early-blight': "La planta presenta tizón temprano. Usa fungicidas con clorotalonil o mancozeb y mejora la aireación de las plantas.",
         'Potato-Late-blight': "Se observa tizón tardío. Aplica fungicidas sistémicos como los que contienen clorotalonil, azoxistrobina o fosetil-aluminio y elimina las partes infectadas para proteger la planta.",
         'Potato-healthy': "¡Las papas están sanas! Mantén un riego regular y asegúrate de que el suelo esté bien drenado.",
-        
         'Raspberry-healthy': "¡Las frambuesas están sanas! Mantén un riego adecuado y proporciona suficiente luz.",
-        
         'Soybean-healthy': "¡Los frijoles de soya están en buen estado! Revisa el drenaje del suelo y el riego.",
-        
         'Squash-Powdery-mildew': "La planta tiene moho polvoriento. Controla este problema aplicando fungicidas con azufre, bicarbonato de potasio o neem, y mejorando la circulación de aire.",
-        
         'Strawberry-Leaf-scorch': "La planta presenta quemaduras en las hojas. Mejora la gestión del riego para evitar el estrés hídrico.",
         'Strawberry-healthy': "¡Las fresas están sanas! Asegúrate de que reciban suficiente luz solar.",
-        
         'Tomato-Bacterial-spot': "La planta tiene mancha bacteriana. Aplica tratamientos antibacterianos y elimina las hojas infectadas.",
         'Tomato-Early-blight': "La planta presenta tizón temprano. Controla este problema aplicando fungicidas con clorotalonil y eliminando hojas infectadas.",
         'Tomato-Late-blight': "Se observa tizón tardío. Aplica fungicidas específicos y elimina las partes infectadas para proteger la planta.",
@@ -155,7 +114,6 @@ def index():
         'Tomato-Tomato-mosaic-virus': "La planta tiene virus mosaico. Asegúrate de eliminar las plantas afectadas para evitar la propagación.",
         'Tomato-healthy': "¡El tomate está sano! Mantén un riego regular y asegúrate de que el suelo esté bien drenado."
     }
-
 
     try:
         # Busca la imagen más reciente en la carpeta uploads
@@ -183,7 +141,6 @@ def index():
             aviso = recomendaciones.get(predicho, "No hay recomendaciones disponibles.")
                     # Clasificar entre sano y enfermo
             
-
     except Exception as e:
         print(f"Error al buscar la imagen: {e}")
 

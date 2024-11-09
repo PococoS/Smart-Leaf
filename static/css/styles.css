@@ -1,253 +1,372 @@
-.container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    border: 1px solid #c5e1a5; /* Borde verde claro */
-}
-
+/* Estilos Generales */
 body {
-    background-color: #96eaff; /* Fondo beige claro */
-    color: #333333; /* Color de texto oscuro para un buen contraste */
-    margin: 0; /* Eliminar márgenes predeterminados */
-    padding: 0; /* Eliminar relleno predeterminado */
-}
-
-.header-img {
-    max-width: 150px;
-    height: auto;
-    margin-left: 15px;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .container {
     width: 90%;
-    max-width: 800px;
+    max-width: 900px;
     margin: 20px auto;
     padding: 20px;
     background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    border: 1px solid #c5e1a5; /* Borde verde claro */
+    color: black;
 }
 
-.mini-header {
-    background-color: #aed581; /* Color verde suave */
-    padding: 15px;
-    text-align: center;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    color: white;
-    font-size: 1.2em; /* Aumentar tamaño de fuente */
-}
-
-.planta {
-    background-color: #e8f5e9; /* Fondo verde muy claro */
-    border: 1px solid #000000;
-    border-radius: 10px;
-    padding: 20px;
-    margin-bottom: 20px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: center;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.planta h2 {
-    text-align: center;
-    margin-top: 0;
-}
-
-.planta img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    height: auto;
-    width: 256px;      /* Establece el ancho a 256 píxeles */
-    height: 256px;     /* Establece la altura a 256 píxeles */
-    object-fit: cover; /* Mantiene la relación de aspecto y recorta si es necesario */
-}
-
-
-h1 {
-    font-size: 2.5em;
-    color: #33691e; /* Verde oscuro para el título */
-    margin: 0;
-}
-
-h2 {
-    color: #000000; /* Gris oscuro */
-    margin-top: 0;
-}
-
-h3 {
-    color: #689f38; /* Verde claro para los subtítulos */
-    margin-top: 10px;
-}
-
-p {
-    margin: 10px 0;
-    line-height: 1.5;
-}
-
-/* Colores de fondo según la predicción */
-.fondo-verde {
-    background-color: #9bdb8e; /* Verde claro, asociado a salud */
-    color: #000000; /* Texto en un tono verde oscuro */
-}
-
-.fondo-naranja {
-    background-color: #ee7342; /* Rojo oscuro */; /* Marrón */; /* Naranja claro, asociado a enfermedad */
-    color: #0c0b0b; /* Texto en un tono marrón oscuro */
-}
-
-/* Efectos de hover */
-.planta:hover {
-    filter: brightness(90%); /* Oscurece un poco al pasar el cursor */
-}
-
-/* Efectos adicionales (opcional) */
-.fondo-verde:hover, .fondo-naranja:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
-}
-
-.menu-toggle {
-    display: none; /* Ocultar por defecto */
-    flex-direction: column; /* Apilar los elementos */
-    cursor: pointer; /* Cambiar cursor */
-}
-
+/* Encabezado fijo */
 header {
-    justify-content: space-between; 
-    background-color: #20626e; /* Fondo del encabezado - verde suave */
-    padding: 15px 20px; /* Ajustar el padding */
+    background-color: black;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contenedor del header */
+.header-container {
     display: flex;
-    align-items: center; /* Alinear elementos verticalmente */
+    justify-content: space-between; /* Esto alinea los elementos a los extremos */
+    align-items: center;
+    width: 100%;
 }
 
-.logo {
-    flex: 0 0 auto; /* No permitir que el logo crezca */
+/* Logo principal (izquierda) */
+.logo img {
+    width: 80px;
+    height: auto;
+    margin: 0 10px;
 }
 
-.header-logo {
-    max-width: 100px; /* Tamaño del logo */
-    height: auto; /* Mantener la proporción del logo */
+/* Logo 1 (derecha) */
+.logo1 {
+    margin-left: auto; /* Esto empuja el logo hacia la derecha */
 }
 
-nav {
-    flex: 1; /* Tomar todo el espacio disponible */
-    display: flex; /* Cambiar el display a flex para centrar */
-    justify-content: center; /* Centrar el contenido */
+.logo1 img {
+    width: 80px;
+    height: auto;
+    margin: 0 10px;
 }
 
+/* Estilo para el contenedor del navbar */
+.navbar-dark-custom {
+    background-color: black;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    align-items: center; /* Alinea verticalmente en el centro */
+    padding: 10px 20px;
+}
+
+/* Estilo para las opciones de navegación (enlaces) */
 .nav-links {
-    list-style: none; /* Eliminar puntos de la lista */
-    display: flex; /* Usar flexbox */
-    margin: 0; /* Sin margen */
-    padding: 0; /* Sin padding */
+    display: flex; /* Hacer que los enlaces estén en una fila */
+    justify-content: center; /* Centra los enlaces dentro del contenedor */
+    list-style-type: none; /* Eliminar los puntos de lista */
+    margin: 0; /* Eliminar márgenes */
+    padding: 0; /* Eliminar padding */
 }
 
 .nav-links li {
-    margin: 0 15px; /* Espaciado entre elementos */
+    margin: 0 10px; /* Agregar espacio entre los enlaces */
 }
 
 .nav-links a {
-    text-decoration: none; /* Sin subrayado */
-    color: rgb(255, 255, 255); /* Color del texto */
-    font-weight: bold; /* Negrita */
-    transition: color 0.3s, background-color 0.3s; /* Efecto de transición */
-    padding: 8px 12px; /* Espaciado interno para mejorar la apariencia */
-    border-radius: 5px; /* Bordes redondeados */
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
+/* Estilo para los enlaces de navegación */
+.nav-links a {
+    color: #f0f0f0; /* Color inicial del texto */
+    text-decoration: none; /* Eliminar subrayado o línea */
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transición para el color, fondo y escala */
+    border-bottom: none; /* Asegurarnos de que no haya borde abajo */
+}
+
+
+/* Efecto hover sobre los enlaces */
 .nav-links a:hover {
-    color: #e0f2f1; /* Color al pasar el mouse */
-    background-color: rgba(255, 255, 255, 0.2); /* Fondo ligero al pasar el mouse */
+    background-color: #5dade2; /* Azul claro al pasar el ratón */
+    color: white; /* Cambiar el color del texto a blanco */
     transform: scale(1.1); /* Aumentar ligeramente el tamaño */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra al pasar el mouse */
+    border-bottom: none; /* Asegurarnos de que no haya borde abajo */
 }
 
+/* Menú de hamburguesa */
 .menu-toggle {
-    display: none; /* Ocultar por defecto */
-    flex-direction: column; /* Apilar los elementos */
-    cursor: pointer; /* Cambiar cursor */
+    display: none; /* Oculto en pantallas grandes */
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 10;
 }
 
-.bar {
-    height: 4px; /* Altura de las barras */
-    width: 25px; /* Ancho de las barras */
-    background-color: white; /* Color de las barras */
-    margin: 4px 0; /* Espaciado entre barras */
+.menu-toggle .bar {
+    width: 30px;
+    height: 4px;
+    margin: 5px auto;
+    background-color: white;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-/* Estilos Responsivos */
-@media (max-width: 600px) {
-        .header-logo {
-            display: none; /* Ocultar el logo en móvil */
-        }
-    
-        /* Otros estilos ya existentes */
-        nav {
-            display: none; /* Ocultar el menú por defecto en móvil */
-        }
-    
-        .menu-toggle {
-            display: flex; /* Mostrar el ícono de hamburguesa en móvil */
-        }
-    
-        .nav-links.active {
-            display: flex; /* Mostrar el menú cuando está activo */
-            flex-direction: column; /* Apilar verticalmente */
-            position: absolute; /* Posicionamiento absoluto */
-            top: 60px; /* Espaciado desde el encabezado */
-            left: 0; /* Alinear a la izquierda */
-            background-color: #4caf50; /* Fondo verde */
-            width: 100%; /* Ancho completo */
-            z-index: 1; /* Asegurarse que esté arriba */
-        }
-    
-        .nav-links li {
-            margin: 10px 0; /* Espaciado entre elementos en vertical */
-            text-align: center; /* Centrar el texto */
-        }
-  
 
-    .nav-links {
-        display: none; /* Ocultar enlaces en móvil */
-        flex-direction: column; /* Apilar verticalmente */
-        width: 100%; /* Ancho completo */
-        position: absolute; /* Posicionamiento absoluto */
-        top: 60px; /* Espaciado desde el encabezado */
-        left: 0; /* Alinear a la izquierda */
-        background-color: #4caf50; /* Fondo verde */
-        z-index: 1; /* Asegurarse que esté arriba */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el menú desplegable */
-        border-radius: 5px; /* Bordes redondeados */
-    }
+/* Superposición oscura */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Color oscuro con ligera transparencia */
+    display: none; /* Oculto por defecto */
+    z-index: 998; /* Asegurarse de que esté debajo del menú */
+    transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
 
-    .nav-links.active {
-        display: flex; /* Mostrar cuando está activo */
+/* Mostrar la superposición cuando el menú está activo */
+.offcanvas.active + .overlay {
+    display: block; /* Muestra la superposición cuando el menú lateral está activo */
+    opacity: 1; /* Hacemos visible la superposición */
+}
+
+/* Estilos para el Offcanvas (menú lateral) */
+.offcanvas {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+/* Cuando el offcanvas está activo */
+.offcanvas.active {
+    right: 0;
+}
+
+/* Los enlaces dentro del offcanvas */
+.offcanvas .nav-links {
+    list-style-type: none;
+    padding: 20px;
+    margin: 0;
+    color: white;
+}
+
+.offcanvas .nav-links li {
+    padding: 15px 0;
+}
+
+.offcanvas .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Mini Header */
+.mini-header {
+    background-color: #a5d6a7;
+    padding: 20px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    color: black;
+    font-size: 1.5rem;
+    margin-top: 100px; /* Para que no quede debajo del header fijo */
+}
+
+/* Estilo de la Planta */
+.planta {
+    position: relative;
+    background-color: #e8f5e9;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+    color: #000; /* Establece el color de texto negro para todo el contenedor */
+}
+
+.planta h2{
+    color: black;
+}
+
+/* Hover: oscurecer y elevar la planta */
+.planta:hover {
+    transform: translateY(-10px); /* Eleva la planta */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0.85;
+}
+
+/* Fondo verde cuando la planta está sana */
+.fondo-verde {
+    background-color: #9bdb8e;
+}
+
+/* Fondo naranja cuando la planta está enferma */
+.fondo-naranja {
+    background-color: #fdb295;
+    color: #fff; /* Texto blanco cuando la planta está enferma */
+}
+
+/* Para las etiquetas "Predicción" y "Aviso" */
+.planta p {
+    color: #000; /* Asegura que el texto sea negro en todos los párrafos */
+}
+
+/* Efecto hover sobre la imagen */
+.planta-img {
+    width: 20%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.planta:hover .planta-img {
+    transform: scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background-color: #333; /* Fondo oscuro para el footer */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    margin: 0 10px;
+    color: #444; /* Gris oscuro para los iconos */
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: #f1c40f; /* Amarillo brillante al pasar el cursor */
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    
+    .navbar-dark-custom{
+
+        justify-content: flex-start;
+        
     }
 
     .menu-toggle {
-        display: flex; /* Mostrar el menú móvil */
+        display: flex; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
     }
 
-    .menu-toggle .bar {
-        transition: transform 0.3s; /* Animación para el menú */
+    /* Ocultamos el menú de navegación normal en pantallas pequeñas */
+    .nav-links {
+        display: none;  /* Ocultar el menú en pantallas pequeñas */
     }
 
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px); /* Animación de la primera barra */
+    #navLinks {
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding-top: 60px;
+        display: none;
+        flex-direction: column;
+    }
+    #navLinks.active {
+        display: flex;
+    }
+    .nav-links li {
+        text-align: left;
+        width: 100%;
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
     }
 
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0; /* Ocultar la segunda barra */
+    .nav-links li a {
+        color: white;
+        padding: 10px;
+        text-decoration: none;
+        width: 100%;
+        display: flex;
+    }
+    
+    .overlay {
+        display: none; /* Oculta la superposición cuando no está activa */
     }
 
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px); /* Animación de la tercera barra */
+    .offcanvas.active + .overlay {
+        display: block; /* Muestra la superposición cuando el menú está activo */
+        opacity: 1; /* Asegúrate de que la opacidad sea 1 cuando se muestre */
     }
+
+    /* Estilo del footer en pantallas pequeñas */
+    .footer {
+        padding: 10px 0;
+    }
+
+    .logo img {
+        display: none;
+    }
+
+    .logo1 img {
+        display: block;
+        width: 60px;
+    }
+
+    /* Cuando el offcanvas está activo, mostrar los enlaces */
+    .offcanvas.active .nav-links {
+        display: block;
+    }
+}
+
+/* Estilo de la notificación */
+.notification {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+/* Efecto de animación para las barras del menú de hamburguesa */
+.menu-toggle.active .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-toggle.active .bar2 {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
 }

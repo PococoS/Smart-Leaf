@@ -3,46 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Smart Leaf</title>
+    <title>Recomendaciones para Plantas</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/planta.png') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Fuentes de Google -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <div class="logo">
-            <img src="{{ url_for('static', filename='img/uqroo.png') }}" alt="Smart Leaf Logo" class="header-logo">
+        <div class="header-container">
+            <!-- Logo a la izquierda -->
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/uqroo.png') }}" alt="Logo">
+            </div>
+            
+            <!-- Menú de navegación (Navbar) visible en pantallas grandes -->
+            <nav class="navbar-dark-custom">
+                <!-- Botón de hamburguesa -->
+                <div class="menu-toggle" id="menuToggle">
+                    <div class="bar bar1"></div>
+                    <div class="bar bar2"></div>
+                    <div class="bar bar3"></div>
+                </div>
+                
+                <!-- Opciones de navegación (enlaces) -->
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}" style="text-decoration: none;">Inicio</a></li>
+                    <li><a href="{{ url_for('about') }}" style="text-decoration: none;">Sobre Nosotros</a></li>
+                    <li><a href="{{ url_for('services') }}" style="text-decoration: none;">¿Cómo Funciona?</a></li>
+                    <li><a href="{{ url_for('contact') }}" style="text-decoration: none;">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="logo1">
+                <img src="{{ url_for('static', filename='img/planta.png') }}" alt="Smart Leaf Logo" class="header-logo1">
+            </div>
         </div>
-        <div class="menu-toggle" id="menuToggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="{{ url_for('index') }}">Inicio</a></li>
-                <li><a href="{{ url_for('about') }}">Sobre Nosotros</a></li>
-                <li><a href="{{ url_for('services') }}">Servicios</a></li>
-                <li><a href="{{ url_for('contact') }}">Contacto</a></li>
+
+        <!-- Superposición oscura -->
+        <div class="overlay" id="overlay"></div>
+
+        <!-- Offcanvas (menú lateral) -->
+        <div class="offcanvas" id="offcanvasMenu">
+            <ul class="nav-links">
+                <li><a href="{{ url_for('index') }}" style="text-decoration: none;">Inicio</a></li>
+                <li><a href="{{ url_for('about') }}" style="text-decoration: none;">Sobre Nosotros</a></li>
+                <li><a href="{{ url_for('services') }}" style="text-decoration: none;">¿Cómo Funciona?</a></li>
+                <li><a href="{{ url_for('contact') }}" style="text-decoration: none;">Contacto</a></li>
             </ul>
-        </nav>
-        <div class="logo">
-            <img src="{{ url_for('static', filename='img/planta.png') }}" alt="Smart Leaf Logo" class="header-logo">
         </div>
+
+    </div>
     </header>
 
     <div class="container">
         <div class="mini-header">
-            <h1>Contacto</h1>
+            <h1>Smart Leaf</h1>
+            <p>Recomendaciones personalizadas para el cuidado de tus plantas</p>
         </div>
-        <div class="content">
-            <p>¿Tienes alguna pregunta o necesitas ayuda? Contáctanos:</p>
-            <ul>
-                <li><strong>Email:</strong> info@smartleaf.com</li>
-                <li><strong>Teléfono:</strong> +52 123 456 7890</li>
-                <li><strong>Redes Sociales:</strong> Síguenos para conocer las últimas novedades.</li>
-            </ul>
-        </div>
-    </div>
 
+        <div class="contact-container">
+            <h1>Contáctanos</h1>
+            <p>Si tienes alguna pregunta, comentario o necesitas ayuda con tus plantas, no dudes en ponerte en contacto con nosotros. Estaremos encantados de ayudarte.</p>
+
+            <!-- Formulario de Contacto - DEMOSTRACIÓN -->
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Escribe tu nombre">
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Escribe tu correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Escribe tu mensaje"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" enabled>Enviar Mensaje</button> <!-- Botón deshabilitado -->
+            </form>
+
+            <!-- Notificación de éxito -->
+            <div class="notification" id="successNotification">
+                ¡Mensaje enviado correctamente!
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <h2>Información de Contacto</h2>
+        <p>Si prefieres contactarnos directamente, puedes utilizar los siguientes medios:</p>
+        <ul>
+            <li><i class="fas fa-phone"></i> Teléfono: (983) 332-6003</li>
+            <li><i class="fas fa-envelope"></i> Correo: holasimon@gmail.com</li>
+            <li><i class="fas fa-map-marker-alt"></i> Dirección: Calle Guanajuato, Chetumal, México</li>
+        </ul>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            <p>&copy; 2024 Smart Leaf. Todos los derechos reservados.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Agregar los scripts necesarios para Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    
+    <script>
+        $(document).ready(function(){
+            // Mostrar la notificación después de hacer clic en el botón de enviar
+            $("#contactForm").submit(function(event) {
+                event.preventDefault(); // Evitar el envío real del formulario
+
+                // Limpiar los campos del formulario
+                $('#name').val('');
+                $('#email').val('');
+                $('#message').val('');
+
+                // Mostrar la notificación por 3 segundos
+                $("#successNotification").fadeIn().delay(3000).fadeOut();
+            });
+
+            $("#menuToggle").click(function(){
+                $("#navLinks").toggleClass("active");
+                $(this).toggleClass("active");
+
+                // Animar las barras de la hamburguesa
+                $(this).find(".bar:first").toggleClass("bar1");
+                $(this).find(".bar:nth-child(2)").toggleClass("bar2");
+                $(this).find(".bar:last").toggleClass("bar3");
+            });
+        });
+    </script>
+
+    <script>
+        // Seleccionamos el botón de menú, el menú lateral (offcanvas) y la superposición
+        const menuToggle = document.getElementById('menuToggle');
+        const offcanvasMenu = document.getElementById('offcanvasMenu');
+        const overlay = document.getElementById('overlay');
+    
+        // Función para alternar el menú y la superposición
+        menuToggle.addEventListener('click', () => {
+            offcanvasMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+    
+        // Cerrar el menú al hacer clic en la superposición
+        overlay.addEventListener('click', () => {
+            offcanvasMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
